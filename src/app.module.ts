@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { LoginModule } from './login/login.module';
+import { GuardModule } from './guard/guard.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
     // 加载子模块
     UserModule,
+    LoginModule,
+    GuardModule,
   ],
   controllers: [AppController],
   providers: [AppService],

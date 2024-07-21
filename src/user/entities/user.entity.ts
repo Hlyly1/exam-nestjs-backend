@@ -1,10 +1,15 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
-export class UserEntity {
+export class User {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column({ type: 'varchar', name: 'name' })
+  @Column({ type: 'varchar', name: 'name', length: 99 })
   name: string;
   phone: string;
   vChat: string;
@@ -15,6 +20,8 @@ export class UserEntity {
   has_person_info: boolean;
   edu: string;
   techStack: string;
+  @CreateDateColumn()
   createTime: Date;
+  @CreateDateColumn()
   updateTime: Date;
 }

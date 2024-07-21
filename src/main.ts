@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as session from 'express-session';
-
 import * as cors from 'cors';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const whiteList = ['/login'];
 
@@ -12,7 +12,8 @@ async function bootstrap() {
       next();
     } else {
       //权限校验
-      res.send({ code: 200 });
+      next();
+      // res.send({ code: 200 });
     }
   }
 
@@ -28,6 +29,13 @@ async function bootstrap() {
   );
   app.use(cors());
   app.use(middleWareAll);
+  const options = new DocumentBuilder()
+    .setTitle('考试项目后端接口文档')
+    .setDescription('接口文档')
+    .setVersion('v1')
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('/api-docs', app, document);
   await app.listen(9090);
 }
 bootstrap();

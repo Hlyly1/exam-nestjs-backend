@@ -1,14 +1,16 @@
 import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UserEntity } from './entities/user.entity';
+import { User } from './entities/user.entity';
 
 import * as svgCaptcha from 'svg-captcha';
+import { ApiTags } from '@nestjs/swagger';
 @Controller('user')
+@ApiTags('用户接口')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get('list')
-  findAll(): Promise<UserEntity[]> {
+  findAll(): Promise<User[]> {
     return this.userService.findAll();
   }
 
