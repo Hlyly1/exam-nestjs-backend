@@ -1,73 +1,155 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 前端学习
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+1.项目中的三类css
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+​	1.1 Reset 和 normalize css
 
-## Description
+​	1.2 app.css 定义layout级别样式	
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+​	1.3 叶面积样式、组件及样式 Css Module
 
-## Installation
 
-```bash
-$ npm install
+
+
+
+2.定义项目的Layout
+
+3.npm i sass -D
+
+4.npm install antd --save
+
+5.antd 官网
+
+15节课
+
+css module
+
+第18节课
+
+
+
+
+
+# nestjs
+
+数据库连接
+
+user
+
+![1721482398256](C:\Users\15333\AppData\Roaming\Typora\typora-user-images\1721482398256.png)
+
+DTO
+
+![1721482657067](C:\Users\15333\AppData\Roaming\Typora\typora-user-images\1721482657067.png)
+
+
+
+nestjs生成
+
+先新建文件夹 在生成以下目录
+
+nest g controller user
+
+nest g service user
+
+nest g module user
+
+
+
+## 数据库连接教程
+
+https://blog.csdn.net/lxy869718069/article/details/103408695
+
+
+
+
+
+## session安装
+
+npm i express-session -- save
+
+npm i @types/express-session -D
+
+
+
+## 安装验证码
+
+npm install svg-captcha --save
+
+
+
+
+
+## 中间件使用
+
+middleware
+
+局部中间件  一个单独模块设置中间件
+
+全局中间件
+
+
+
+## 后端请求允许跨域
+
+npm install cros
+
+npm install @types/cors  -D
+
+
+
+## 上传文件  和   静态资源访问
+
+## 下载文件的两种方法
+
+直接下载
+
+二进制流下载
+
+## 响应拦截器
+
+## 全局异常拦截器
+
+## 管道转换
+
+## UUid使用
+
+npm install uuid -S
+
+npm install @types/uuid -D
+
+
+
+## 快速生成dto
+
+nest g res xxx
+
+nest g pi xxx   生成管道
+
+## 守卫
+
+## 自定义装饰器
+
+## 集成swagger
+
+npm install @nestjs/swagger swagger-ui-express
+
+
+
+## 实体类
+
+
+
+## CRUD实例
+
+![1721548083919](C:\Users\15333\AppData\Roaming\Typora\typora-user-images\1721548083919.png)
+
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Test
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
+## 疑问
 
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+--save 是什么意思
