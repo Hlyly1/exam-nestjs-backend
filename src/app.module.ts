@@ -4,8 +4,6 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LoginModule } from './login/login.module';
-import { GuardModule } from './guard/guard.module';
-
 @Module({
   imports: [
     // 加载连接数据库
@@ -22,7 +20,6 @@ import { GuardModule } from './guard/guard.module';
     // 加载子模块
     UserModule,
     LoginModule,
-    GuardModule,
   ],
   controllers: [AppController],
   providers: [AppService],

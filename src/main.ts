@@ -11,6 +11,8 @@ async function bootstrap() {
     if (whiteList.includes(req.originalUrl)) {
       next();
     } else {
+      console.log(req, 'req');
+
       //权限校验
       next();
       // res.send({ code: 200 });
@@ -23,7 +25,7 @@ async function bootstrap() {
     session({
       secret: '1212211',
       rolling: true,
-      name: 'lityi.sid',
+      name: 'liyi.sid',
       cookie: { maxAge: 99999121121 },
     }),
   );
