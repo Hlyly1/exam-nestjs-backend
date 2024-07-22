@@ -14,4 +14,20 @@ export class UserService {
   async findAll(): Promise<User[]> {
     return await this.userRepository.query('select * from user');
   }
+  async findOneByUsername(username: string): Promise<User | undefined> {
+    return this.userRepository.findOne({ where: { username } });
+  }
+
+  async validateUser(username: string): Promise<User | null> {
+    console.log(username, 'usernmae');
+    const user = await this.findOneByUsername(username);
+    console.log(user);
+
+    if (user) {
+      // 注意：实际项目中应该使用密码哈希比较
+      // && user.password === password
+      return user;
+    }
+    return null;
+  }
 }

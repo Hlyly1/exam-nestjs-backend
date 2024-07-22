@@ -10,7 +10,9 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
   @Column({ type: 'varchar', name: 'name', length: 99 })
-  name: string;
+  username: string;
+  @Column({ type: 'varchar', name: 'password', length: 99 })
+  password: string;
   phone: string;
   vChat: string;
   avatar: string;

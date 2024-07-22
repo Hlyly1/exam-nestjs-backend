@@ -3,19 +3,38 @@ import { AppModule } from './app.module';
 import * as session from 'express-session';
 import * as cors from 'cors';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-async function bootstrap() {
-  const whiteList = ['/login'];
 
+async function bootstrap() {
+  const whiteList = ['/user/login'];
   function middleWareAll(req, res, next) {
     console.log(req.originalUrl, '我收全局的');
     if (whiteList.includes(req.originalUrl)) {
       next();
     } else {
-      console.log(req, 'req');
-
-      //权限校验
-      next();
-      // res.send({ code: 200 });
+      if (req.session) {
+        const dateString = req.session.cookie._expires;
+        const date = new Date(dateString);
+        const timestamp = date.getTime();
+        if (req.session.userId) {
+          if (Date.now() < timestamp) {
+            console.log(timestamp, Date.now());
+            // 会话未过期，继续处理请求
+            console.log(req.session, 'session');
+            console.log('用户ID存在且会话未过期:', req.session.userId);
+            next();
+          }
+        } else {
+          // 会话已过期，处理会话过期逻辑
+          console.log('会话已过期');
+          res
+            .status(401)
+            .send({ code: 401, message: '会话已过期，请重新登录' });
+        }
+      } else {
+        // 用户ID不存在，处理未授权访问
+        console.log('未授权访问');
+        res.status(401).send({ code: 401, message: '未授权访问' });
+      }
     }
   }
 
@@ -24,9 +43,9 @@ async function bootstrap() {
   app.use(
     session({
       secret: '1212211',
-      rolling: true,
+      rolling: false,
       name: 'liyi.sid',
-      cookie: { maxAge: 99999121121 },
+      cookie: { maxAge: 9911 },
     }),
   );
   app.use(cors());
