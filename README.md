@@ -38,6 +38,18 @@ npm i express-session -- save
 
 npm i @types/express-session -D
 
+```
+import * as session from 'express-session';
+app.use(
+    session({
+      secret: '1212211',
+      rolling: false,
+      name: 'liyi.sid',
+      cookie: { maxAge: 9911 },
+    }),
+  );
+```
+
 
 
 ## 安装验证码
@@ -64,7 +76,10 @@ npm install cros
 
 npm install @types/cors  -D
 
-
+```
+import * as cors from 'cors';
+app.use(cors());
+```
 
 ## 上传文件  和   静态资源访问
 
@@ -101,6 +116,22 @@ nest g pi xxx   生成管道
 ## 集成swagger
 
 npm install @nestjs/swagger swagger-ui-express
+
+```js
+const options = new DocumentBuilder()
+    .setTitle('考试项目后端接口文档')
+    .setDescription('接口文档')
+    .setVersion('v1')
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('/api-docs', app, document);
+```
+
+Controller层
+
+```
+@ApiTags('用户接口')
+```
 
 
 
