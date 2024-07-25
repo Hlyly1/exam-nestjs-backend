@@ -5,9 +5,8 @@ import * as cors from 'cors';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const whiteList = ['/user/login'];
+  const whiteList = ['/user/login', '/api/subject'];
   function middleWareAll(req, res, next) {
-    console.log(req.originalUrl, '我收全局的');
     if (whiteList.includes(req.originalUrl)) {
       next();
     } else {

@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { LoginModule } from './login/login.module';
+import { SubjcetModule } from './subjcet/subjcet.module';
 @Module({
   imports: [
     // 加载连接数据库
@@ -20,6 +21,7 @@ import { LoginModule } from './login/login.module';
     // 加载子模块
     UserModule,
     LoginModule,
+    SubjcetModule,
   ],
   controllers: [AppController],
   providers: [AppService],
