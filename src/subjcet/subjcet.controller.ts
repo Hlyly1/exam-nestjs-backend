@@ -11,10 +11,10 @@ import { SubjcetService } from './subjcet.service';
 import { CreateSubjcetDto } from './dto/create-subjcet.dto';
 import { UpdateSubjcetDto } from './dto/update-subjcet.dto';
 
-@Controller('/api')
+@Controller('/api/subject')
 export class SubjcetController {
   constructor(private readonly subjcetService: SubjcetService) {}
-  @Get('subjcet')
+  @Get('list')
   findAll() {
     return this.subjcetService.findAll();
   }

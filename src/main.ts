@@ -5,7 +5,7 @@ import * as cors from 'cors';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const whiteList = ['/user/login', '/api/subject'];
+  const whiteList = ['/user/login', '/api/subject', '/api/subject_add'];
   function middleWareAll(req, res, next) {
     if (whiteList.includes(req.originalUrl)) {
       next();
@@ -23,6 +23,8 @@ async function bootstrap() {
             next();
           }
         } else {
+          //暂时通过
+          next();
           // 会话已过期，处理会话过期逻辑
           console.log('会话已过期');
           res
@@ -48,7 +50,7 @@ async function bootstrap() {
     }),
   );
   app.use(cors());
-  app.use(middleWareAll);
+  // app.use(middleWareAll);
   const options = new DocumentBuilder()
     .setTitle('考试项目后端接口文档')
     .setDescription('接口文档')

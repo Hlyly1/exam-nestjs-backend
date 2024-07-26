@@ -1,1 +1,3 @@
-export class CreateSubjcetDto {}
+export class CreateSubjcetDto {
+    
+}
